@@ -109,7 +109,11 @@ RUN     ./libuv.sh     1
 COPY    ./hwloc.sh       ./
 RUN     ./hwloc.sh     1
 
-COPY    ./xmrig.sh       ./
+COPY    ./xmrig.sh           \
+        ./donate.h.sed       \
+        ./DonateStrategy.cpp \
+        ./Config_default.h   \
+                             ./
 RUN     ./xmrig.sh     1
 
 #FROM scratch as squash

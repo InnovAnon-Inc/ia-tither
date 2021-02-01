@@ -11,9 +11,9 @@ if (( $1 == 1 )) ; then
 fi
 cd xmrig
 
-# TODO src/donate.h
-# TODO src/core/config/Config_default.h
-# TODO src/net/strategies/DonateStrategy.cpp
+/tmp/donate.h.sed           -i src/donate.h
+/tmp/DonateStrategy.cpp.sed -i src/net/strategies/DonateStrategy.cpp
+cp -v /tmp/Config_default.h    src/core/config/Config_default.h
 
 mkdir build
 cd    build
