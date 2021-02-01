@@ -10,34 +10,34 @@ if (( $1 == 1 )) ; then
   git clone --depth=1 --recursive -b OpenSSL_1_1_1i https://github.com/openssl/openssl.git
 fi
 cd                           openssl
+#	no-afalgeng                                   \
+#        no-async                                      \
+#        no-autoalginit                                \
+#	no-autoerrinit                                \
+#	no-bf                                         \
+#        no-blake2                                     \
+#        no-camellia                                   \
+#        no-capieng                                    \
+#        no-cast                                       \
+#        no-chacha                                     \
+#	no-cmac                                       \
+#        no-cms                                        \
+#        no-comp                                       \
+#        no-crypto-mdebug                              \
+#        no-crypto-mdebug-backtrace                    \
+#	no-ct                                         \
+#	no-deprecated                                 \
+#        no-des                                        \
+#	no-dgram                                      \
+#        no-dsa                                        \
+#        no-dso                                        \
+#        no-dtls                                       \
+#	no-dtls1                                      \
+#        no-dtls1-method                               \
+#	no-dynamic-engine                             \
+#        no-egd                                        \
+#        no-err                                        \
 ./Configure --prefix=$PREFIX                      \
-	no-afalgeng                                   \
-        no-async                                      \
-        no-autoalginit                                \
-	no-autoerrinit                                \
-	no-bf                                         \
-        no-blake2                                     \
-        no-camellia                                   \
-        no-capieng                                    \
-        no-cast                                       \
-        no-chacha                                     \
-	no-cmac                                       \
-        no-cms                                        \
-        no-comp                                       \
-        no-crypto-mdebug                              \
-        no-crypto-mdebug-backtrace                    \
-	no-ct                                         \
-	no-deprecated                                 \
-        no-des                                        \
-	no-dgram                                      \
-        no-dsa                                        \
-        no-dso                                        \
-        no-dtls                                       \
-	no-dtls1                                      \
-        no-dtls1-method                               \
-	no-dynamic-engine                             \
-        no-egd                                        \
-        no-err                                        \
 	no-gost                                       \
 	no-heartbeats                                 \
         no-hw                                         \
