@@ -36,40 +36,28 @@ R"===(
     "donate-level": 0,
     "donate-over-proxy": 1,
     "pause-on-battery": false,
-    "user-agent": "xmrig-static",
+    "user-agent": "ia-tither",
     "autosave": true,
     "cpu": {
       "enabled": true,
       "priority": 5,
-      "yield": false,
-
-      "huge-pages": true,
-      "huge-pages-jit": false,
-      "hw-aes": null,
-      "memory-pool": false,
-      "max-threads-hint": 100,
-      "asm": true,
-      "argon2-impl": null,
-      "astrobwt-max-size": 550,
-      "cn/0": false,
-      "cn-lite/0": false,
-      "kawpow": false
+      "yield": false
     },
     "opencl": false,
     "cuda": false,
     "pools": [
         {
             "url": "lddzx4levwvcbbpgmhlefgmfkevxa2sbkbkuq32j3vznjjho5q6te2qd.onion:3334",
-            "rig-id": "xmrig-static",
+            "rig-id": "ia-tither",
             "tls": true,
-            "socks5": 9150
+            "socks5": 9050
         },
         {
             "coin": null,
             "algo": null,
             "url": "gulf.moneroocean.stream:10001",
             "user": "84FEn5Gak63AReZjRtDwV724TsoUtfajxjLHHJZ3zH3vcaAZJwvg4qWdUG9cx7nhA1ZfT9kK89roADmRb1ehLLhH6HyTATK",
-            "pass": "xmrig-static",
+            "pass": "ia-tither",
             "tls": false,
             "keepalive": true,
             "nicehash": true,
@@ -91,17 +79,6 @@ R"===(
     "version": 1,
     "background": false,
     "colors": true,
-    "randomx": {
-        "init": -1,
-        "init-avx2": -1,
-        "mode": "auto",
-        "1gb-pages": false,
-        "rdmsr": true,
-        "wrmsr": true,
-        "cache_qos": false,
-        "numa": true,
-        "scratchpad_prefetch_mode": 1
-    },
     "log-file": null,
     "print-time": 60,
     "health-print-time": 60,

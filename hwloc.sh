@@ -49,7 +49,7 @@ cd hwloc
         AR="$AR"                                      \
         RANLIB="$RANLIB"
 make -j$(nproc)
-make install
+make install || :
 if (( $1 == 1 )) ; then
   git reset --hard
   git clean -fdx
