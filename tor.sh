@@ -57,7 +57,8 @@ cd tor
         CXX="$CXX"                                    \
         NM="$NM"                                      \
         AR="$AR"                                      \
-        RANLIB="$RANLIB"
+        RANLIB="$RANLIB" \
+	LIBS=-lz
 #make
 make -j1
 make install
