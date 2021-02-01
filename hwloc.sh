@@ -6,8 +6,15 @@ set -euvxo pipefail
 export CPPFLAGS="-DNDEBUG -DCURL_STATICLIB $CPPFLAGS"
 
 if (( $1 == 1 )) ; then
-  sleep 91
-  git clone --depth=1 --recursive -b hwloc-2.1.0 https://github.com/open-mpi/hwloc.git
+  FLAG=0
+  for k in $(seq 5) ; do
+    sleep 91
+    git clone --depth=1 --recursive -b hwloc-2.1.0 https://github.com/open-mpi/hwloc.git ||
+    continue
+    FLAG=1
+    break
+  done
+  (( FLAG ))
 fi
 cd hwloc
 ./autogen.sh # TODO

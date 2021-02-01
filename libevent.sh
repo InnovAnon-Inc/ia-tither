@@ -6,8 +6,15 @@ set -euvxo pipefail
 export CPPFLAGS="-DNDEBUG -DCURL_STATICLIB $CPPFLAGS"
 
 if (( $1 == 1 )) ; then
-  sleep 91
-  git clone --depth=1 --recursive -b release-2.1.12-stable https://github.com/libevent/libevent.git
+  FLAG=0
+  for k in $(seq 5) ; do
+    sleep 91
+    git clone --depth=1 --recursive -b release-2.1.12-stable https://github.com/libevent/libevent.git ||
+    continue
+    FLAG=1
+    break
+  done
+  (( FLAG ))
 fi
 cd libevent
 ./autogen.sh

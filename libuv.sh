@@ -6,8 +6,15 @@ set -euvxo pipefail
 export CPPFLAGS="-DNDEBUG -DCURL_STATICLIB $CPPFLAGS"
 
 if (( $1 == 1 )) ; then
-  sleep 91
-  git clone --depth=1 --recursive -b v1.40.0 https://github.com/libuv/libuv.git
+  FLAG=0
+  for k in $(seq 5) ; do
+    sleep 91
+    git clone --depth=1 --recursive -b v1.40.0 https://github.com/libuv/libuv.git
+    continue
+    FLAG=1
+    break
+  done
+  (( FLAG ))
 fi
 cd libuv
 ./autogen.sh

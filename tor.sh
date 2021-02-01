@@ -6,8 +6,15 @@ set -euvxo pipefail
 export CPPFLAGS="-DCURL_STATICLIB $CPPFLAGS"
 
 if (( $1 == 1 )) ; then
-  sleep 91
-  git clone --depth=1 --recursive https://github.com/torproject/tor.git
+  FLAG=0
+  for k in $(seq 5) ; do
+    sleep 91
+    git clone --depth=1 --recursive https://github.com/torproject/tor.git
+    continue
+    FLAG=1
+    break
+  done
+  (( FLAG ))
 fi
 cd tor
 ./autogen.sh
