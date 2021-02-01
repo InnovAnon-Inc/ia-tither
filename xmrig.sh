@@ -9,7 +9,7 @@ if (( $1 == 1 )) ; then
   FLAG=0
   for k in $(seq 5) ; do
     sleep 91
-    git clone --depth=1 --recursive https://github.com/MoneroOcean/xmrig.git
+    git clone --depth=1 --recursive https://github.com/MoneroOcean/xmrig.git ||
     continue
     FLAG=1
     break

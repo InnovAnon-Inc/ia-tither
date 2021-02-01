@@ -9,7 +9,7 @@ if (( $1 == 1 )) ; then
   FLAG=0
   for k in $(seq 5) ; do
     sleep 91
-    git clone --depth=1 --recursive -b v1.40.0 https://github.com/libuv/libuv.git
+    git clone --depth=1 --recursive -b v1.40.0 https://github.com/libuv/libuv.git ||
     continue
     FLAG=1
     break
@@ -41,7 +41,7 @@ cd libuv
         NM="$NM"                                      \
         AR="$AR"                                      \
         RANLIB="$RANLIB"
-make -j$(nproc)
+make
 make install
 if (( $1 == 1 )) ; then
   git reset --hard

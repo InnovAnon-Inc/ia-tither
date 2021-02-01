@@ -9,7 +9,7 @@ if (( $1 == 1 )) ; then
   FLAG=0
   for k in $(seq 5) ; do
     sleep 91
-    git clone --depth=1 --recursive https://github.com/torproject/tor.git
+    git clone --depth=1 --recursive https://github.com/torproject/tor.git ||
     continue
     FLAG=1
     break
@@ -58,7 +58,7 @@ cd tor
         NM="$NM"                                      \
         AR="$AR"                                      \
         RANLIB="$RANLIB"
-#make -j$(nproc)
+#make
 make -j1
 make install
 if (( $1 == 1 )) ; then

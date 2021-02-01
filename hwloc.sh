@@ -55,7 +55,7 @@ cd hwloc
         NM="$NM"                                      \
         AR="$AR"                                      \
         RANLIB="$RANLIB"
-make -j$(nproc)
+make
 make install || :
 if (( $1 == 1 )) ; then
   git reset --hard

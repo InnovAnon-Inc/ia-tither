@@ -9,7 +9,7 @@ if (( $1 == 1 )) ; then
   FLAG=0
   for k in $(seq 5) ; do
     sleep 91
-    git clone --depth=1 --recursive -b OpenSSL_1_1_1i https://github.com/openssl/openssl.git
+    git clone --depth=1 --recursive -b OpenSSL_1_1_1i https://github.com/openssl/openssl.git ||
     continue
     FLAG=1
     break
@@ -88,7 +88,7 @@ cd                           openssl
         -DOPENSSL_SMALL_FOOTPRINT                     \
         -DOPENSSL_USE_IPV6=0                          \
         linux-x86_64
-make -j$(nproc)
+make
 make install
 if (( $1 == 1 )) ; then
   git reset --hard

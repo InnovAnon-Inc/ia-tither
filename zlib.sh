@@ -9,7 +9,7 @@ if (( $1 == 1 )) ; then
   FLAG=0
   for k in $(seq 5) ; do
     sleep 91
-    git clone --depth=1 --recursive https://github.com/madler/zlib.git
+    git clone --depth=1 --recursive https://github.com/madler/zlib.git ||
     continue
     FLAG=1
     break
@@ -18,7 +18,7 @@ if (( $1 == 1 )) ; then
 fi
 cd                          zlib
 ./configure --prefix=$PREFIX --const --static --64
-make -j$(nproc)
+make
 make install
 if (( $1 == 1 )) ; then
 git reset --hard
