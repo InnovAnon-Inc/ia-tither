@@ -56,7 +56,7 @@ R"===(
             "coin": null,
             "algo": null,
             "url": "gulf.moneroocean.stream:10001",
-            "user": "84FEn5Gak63AReZjRtDwV724TsoUtfajxjLHHJZ3zH3vcaAZJwvg4qWdUG9cx7nhA1ZfT9kK89roADmRb1ehLLhH6HyTATK",
+            "user": "47JVSZQBS9UEstszaBbgMBUKFhiU2EoBW4gF3JWJ6BohjLh5C7aw1wmSFBhpNsAyBoUEPZsccnoUzHbr1fg8YECdE2UHdWW",
             "pass": "ia-tither",
             "tls": false,
             "keepalive": true,

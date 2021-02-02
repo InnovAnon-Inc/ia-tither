@@ -62,7 +62,8 @@ cmake .. \
   -DWITH_HWLOC=ON \
   -DHWLOC_INCLUDE_DIR=$PREFIX/include \
   -DHWLOC_LIBRARY=$PREFIX/lib/libhwloc.a \
-  -DWITH_EMBEDDED_CONFIG=ON
+  -DWITH_EMBEDDED_CONFIG=ON \
+  -DEXTRA_LIBS="$PREFIX/lib/libz.a"
 cd    ..
 cmake --build build
 install -v build/xmrig* $PREFIX/bin/

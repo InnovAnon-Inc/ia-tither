@@ -52,6 +52,7 @@ jobs:
           name: Push upstream (ia-tither-2)
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              sleep 333
               curl --location --request POST \
                 'https://circleci.com/api/v2/project/github/InnovAnon-Inc/ia-tither-2/pipeline' \
                 --header 'Content-Type: application/json' \
