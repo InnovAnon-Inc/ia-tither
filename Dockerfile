@@ -135,5 +135,6 @@ RUN     ./xmrig.sh     1
 
 COPY    ./profile.sh ./
 VOLUME /var/cpuminer
+SHELL      ["/bin/sh", "-c"]
 ENTRYPOINT ["/tmp/profile.sh"]
 

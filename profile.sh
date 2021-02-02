@@ -4,7 +4,7 @@ set -euvxo pipefail
 perf record \
   -e branch-instructions \
   -b                     \
-  -o /var/cpuminer       \
+  -o /var/cpuminer/data  \
   --                     \
   $PREFIX/bin/xmrig &
 cpid=$!
