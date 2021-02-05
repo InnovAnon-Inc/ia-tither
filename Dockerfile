@@ -57,7 +57,7 @@ WORKDIR /tmp
 #RUN     ./tor.sh       1
 
 COPY    ./fingerprint.sh         \
-COPY    ./xmrig.sh               \
+        ./xmrig.sh               \
         ./donate.h.sed           \
         ./DonateStrategy.cpp.sed \
         ./Config_default.h       \
