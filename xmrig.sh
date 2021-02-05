@@ -23,27 +23,21 @@ cd xmrig
 cp -v /tmp/Config_default.h    src/core/config/Config_default.h
 
 mkdir build
-cd    build
+cd scripts
+./build_deps.sh
+cd ../build
 
-unset CC
-unset CPP
-unset CXX
-unset LD
-unset NM
-unset AR
-unset FC
-unset RANLIB
-unset STRIP
-
+  #-DEXTRA_LIBS="$PREFIX/lib/libfingerprint.a"
+  #-DCMAKE_SYSTEM_PROCESSOR=$ARCH \
+  #-DCMAKE_SYSTEM_NAME=$CHOST \
+  #-DCMAKE_FIND_ROOT_PATH="$PREFIX" \
 cmake .. \
+  -DXMRIG_DEPS=scripts/deps        \
   -DBUILD_SHARED_LIBS=OFF \
   -DBUILD_STATIC=ON \
-  -DCMAKE_SYSTEM_PROCESSOR=$ARCH \
-  -DCMAKE_SYSTEM_NAME=$CHOST \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_C_FLAGS="$CFLAGS" \
   -DCMAKE_CXX_FLAGS="$CXXFLAGS" \
-  -DCMAKE_FIND_ROOT_PATH="$PREFIX" \
   -DCMAKE_INSTALL_PREFIX="$PREFIX" \
   -DWITH_HTTP=OFF \
   -DWITH_ENV_VARS=OFF \
@@ -54,19 +48,10 @@ cmake .. \
   -DWITH_MO_BENCHMARK=ON \
   -DWITH_BENCHMARK=OFF \
   -DWITH_TLS=ON \
-  -DUV_INCLUDE_DIR=$PREFIX/include \
-  -DUV_LIBRARY=$PREFIX/lib/libuv.a \
-  -DOPENSSL_ROOT_DIR=$PREFIX \
-  -DOPENSSL_INCLUDE_DIR=$PREFIX/include \
-  -DOPENSSL_LIBRARIES="$PREFIX/lib/libssl.a $PREFIX/lib/libcrypto.a" \
-  -DWITH_HWLOC=ON \
-  -DHWLOC_INCLUDE_DIR=$PREFIX/include \
-  -DHWLOC_LIBRARY=$PREFIX/lib/libhwloc.a \
-  -DWITH_EMBEDDED_CONFIG=ON \
-  -DEXTRA_LIBS="$PREFIX/lib/libz.a"
+  -DWITH_EMBEDDED_CONFIG=ON
 cd    ..
 cmake --build build
-install -v build/xmrig* $PREFIX/bin/
+install -Dvt build/xmrig* $PREFIX/bin/
 if (( $1 == 1 )) ; then
   git reset --hard
   git clean -fdx
