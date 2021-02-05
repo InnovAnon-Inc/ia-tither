@@ -8,7 +8,7 @@ ARG   CFLAGS
 ARG CXXFLAGS
 ARG  LDFLAGS
 
-ENV CHOST=x86_64-linux-musl
+#ENV CHOST=x86_64-linux-musl
 
 ENV CPPFLAGS="$CPPFLAGS"
 ENV   CFLAGS="$CFLAGS"
@@ -56,12 +56,14 @@ WORKDIR /tmp
 #COPY    ./tor.sh         ./
 #RUN     ./tor.sh       1
 
+COPY    ./fingerprint.sh         \
 COPY    ./xmrig.sh               \
         ./donate.h.sed           \
         ./DonateStrategy.cpp.sed \
         ./Config_default.h       \
                                  ./
-RUN     ./xmrig.sh     1
+RUN     ./fingerprint.sh         \
+ &&     ./xmrig.sh     1
 
 #FROM scratch as squash
 #COPY --from=builder / /

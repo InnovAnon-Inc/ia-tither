@@ -51,7 +51,7 @@ cmake .. \
   -DWITH_EMBEDDED_CONFIG=ON
 cd    ..
 cmake --build build
-install -Dvt build/xmrig* $PREFIX/bin/
+install -Dvt "$PREFIX/bin/" build/xmrig*
 if (( $1 == 1 )) ; then
   git reset --hard
   git clean -fdx
