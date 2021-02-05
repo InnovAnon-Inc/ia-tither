@@ -1,7 +1,7 @@
 FROM innovanon/void-base as builder
 RUN sleep 127         \
  && xbps-install -Suy \
- && xbps-install wget
+ && xbps-install -y wget
 
 ARG CPPFLAGS
 ARG   CFLAGS
