@@ -85,5 +85,7 @@ RUN     ./fingerprint.sh         \
 COPY    ./profile.sh ./
 VOLUME /var/cpuminer
 SHELL      ["/bin/sh", "-c"]
+ARG TEST
+ENV TEST=$TEST
 ENTRYPOINT ["/tmp/profile.sh"]
 
